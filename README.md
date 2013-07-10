@@ -36,6 +36,10 @@ section of MANIFEST.MF:
 
  - javax.faces.model,
  - javax.faces.webapp
+ 
+Use the same jsf-impl jar as it is defined in the pom.xml of this project.
+It is slightly modified to be a fragment bundle of jsf-api otherwise they
+will never work in OSGi.
 
 
 Tested on
@@ -63,6 +67,14 @@ the same classloader at method calls of the listener and the servlet.
 
 To be able to find the factories the necessary files are placed into the
 META-INF/services inside the adapter.
+
+There is a jsf-impl jar in the everit reop that is modified to be the
+fragment bundle of jsf-api. jsf-api uses the InjectionProvider that is
+located in jsf-impl while jsf-impl uses lots of classes from jsf-api. It
+is also a problem that jsf-api does not import the package of
+InjectionProvider at all so it cannot work in OSGi as it is. Making
+jsf-impl a fragment bundle of jsf-api solves the problem as they will
+have the same classloader.
 
 
 Using from maven
