@@ -78,4 +78,4 @@ Maven generated site
 --------------------
 
 You can find the maven generated site at
-[http://everit.org/maven-sites/osgi-mojarrajsf22adapter].
+http://everit.org/maven-sites/osgi-mojarrajsf22adapter.
